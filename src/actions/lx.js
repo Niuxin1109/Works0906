@@ -1,16 +1,11 @@
 import { post } from '@/utils/request'
 import api from '@/services/api'
 
-export function getData (options) {
+export function regUser (options) {
   return {
-    type: 'FETCH_LX_DATA',
-    payload: post(api.listWithPage, options)
+    type: 'FETCH_REGUSER',
+    payload: post(api.regUser, options)
   }
 }
 
-export function setObj (options) {
-  return {
-    type: 'FETCH_LX_OBJ',
-    payload: options,
-  }
-}
+
