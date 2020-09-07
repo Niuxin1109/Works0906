@@ -51,8 +51,12 @@ export default class Router extends React.Component {
                     <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
                     <Content style={{ margin: '24px 16px 0' }}>
                       <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                           <Route path="/home" component={Home} />
-                           <Route path="/hoc" component={Hoc} />
+                           <Switch>
+                              <Route path="/home" component={Home} />
+                              <Route path="/hoc" component={Hoc} />
+                              <Redirect to="/home"/>
+                           </Switch>
+                          
                       </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

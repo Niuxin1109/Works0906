@@ -1,13 +1,16 @@
-import { handleActions } from 'redux-actions'
-import { FETCH_HOME_TAGS, FETCH_HOME_CHECKBOX } from '@/constants/actionTypes'
-
 const defaultState = {
-  selectedRowKeys: [],
-  data: []
+  
 }
 
-// handleActions 创建 reduce
-export default handleActions({
-  [FETCH_HOME_TAGS]: (state, action) => ({ ...state, data: action.payload }),
-  [FETCH_HOME_CHECKBOX]: (state, action) => ({ ...state, selectedRowKeys: [...action.payload] }),
-}, defaultState)
+// 创建我们的 reduce
+export default function (state = defaultState, action) {
+  switch (action.type) {
+    case 'FETCH_ADDUSER':
+      return { ...state, data: action.payload }
+      case 'FETCH_USERLIST':
+        return { ...state, data: action.payload }
+    default:
+      return state
+  }
+}
+

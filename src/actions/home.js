@@ -1,10 +1,18 @@
-import { createActions } from 'redux-actions'
-import { FETCH_HOME_TAGS, FETCH_HOME_CHECKBOX } from '@/constants/actionTypes'
-import { post } from '@/utils/request'
-import url from '@/services/api'
+import { post, get } from '@/utils/request'
+import api from '@/services/api'
 
-// createActions 创建 action
-export default createActions({
-  [FETCH_HOME_TAGS]: options => post(url.listWithPage, options),
-  [FETCH_HOME_CHECKBOX]: options => options,
-})
+export function addUser (options) {
+  return {
+    type: 'FETCH_ADDUSER',
+    payload: post(api.addUser,options),
+  }
+}
+export function userList (options) {
+  return {
+    type: 'FETCH_USERLIST',
+    payload: post(api.userList,options),
+  }
+}
+
+
+
